@@ -15,6 +15,7 @@ header {
     height: 100%;
     padding: 20px;
     align-items: flex-start;
+    width: 80%;
 }
 
 .columna {
@@ -87,6 +88,17 @@ input[name="cantidad"] {
     color: white;
     text-align: center;
     padding: 10px;
+}
+
+#offlineMessage {
+    border: 1px solid black;
+    height: 50px;
+    background-color: lightblue;
+    border-radius: 10px;
+    flex-grow: 1;
+    flex: 0 0 15%;
+    text-align: center;
+    line-height: 50px;
 }
 
 

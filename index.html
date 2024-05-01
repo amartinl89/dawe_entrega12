@@ -12,6 +12,31 @@
                 navigator.serviceWorker.register('/service-worker.js');
             });
         }
+        function handleOffline() {
+            const offlineDiv = document.createElement('div');
+            offlineDiv.innerHTML = 'Estás offline';
+            offlineDiv.id = 'offlineMessage';
+            document.getElementById('contenedorPrincipal').appendChild(offlineDiv);
+        }
+
+        // Función para eliminar el div cuando se esta online
+        function handleOnline() {
+            const offlineDiv = document.getElementById('offlineMessage');
+            if (offlineDiv) {
+                offlineDiv.remove();
+            }
+        }
+
+        // Evento para detectar cuando se esta offline
+        window.addEventListener('offline', handleOffline);
+
+        // Evento para detectar cuando se esta online
+        window.addEventListener('online', handleOnline);
+
+        // Comprobación inicial del estado de conexión al cargar la página
+        if (!navigator.onLine) {
+            handleOffline();
+        }
     </script>
     
      
@@ -21,7 +46,7 @@
         <h1>La tienda de Paula y Ander</h1>
     </header>
     <main>
-        <div class="contenedor">
+        <div id="contenedorPrincipal" class="contenedor">
             <div class="columna" id="col1">
                 <div class="titulo">
                     <h2>Columna 1</h2>
