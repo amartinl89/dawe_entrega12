@@ -15,7 +15,7 @@ if(workbox){
     {url: '/js/disco.js', revision: null},
 
   ])
-  workbox.routing.setDefaultHandler(new workbox.strategies.NetworkFirst());
+  workbox.routing.setDefaultHandler(new workbox.strategies.NetworkOnly());
   workbox.recipes.offlineFallback({pageFallback: offlineUrl});
   workbox.routing.registerRoute(
     /\.(?:css|js)$/,
